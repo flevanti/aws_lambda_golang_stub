@@ -19,9 +19,9 @@ func main() {
 	loadEnvVariables()
 	if isLambda {
 		lambda.Start(HandleRequest)
+	} else {
+		HandleRequest(context.Background(), loadDummyPayload())
 	}
-
-	HandleRequest(context.Background(), loadDummyPayload())
 
 }
 
