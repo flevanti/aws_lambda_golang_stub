@@ -10,6 +10,10 @@ import (
 	"os"
 )
 
+var isLambda bool
+var isDocker bool
+var isAWS bool
+
 type EventPayloadStruct struct {
 	Source string `json:"source"`
 }
@@ -36,10 +40,6 @@ func HandleRequest(ctx context.Context, eventPayload EventPayloadStruct) (string
 
 	return "PROCESS COMPLETED", nil
 }
-
-var isLambda bool
-var isDocker bool
-var isAWS bool
 
 // checkEnvironment
 func checkEnvironment() {
